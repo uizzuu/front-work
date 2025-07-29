@@ -1,0 +1,148 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  background-color: #111;
+  color: #fff;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+}
+
+
+header {
+  width: 100%;
+  height: 60px;
+  padding: 0 40px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  gap: 40px;
+  backdrop-filter: blur(4px);
+}
+
+header h1 {
+  width: auto;
+  text-align: center;
+}
+
+h1 > a {
+  line-height: 60px;
+  color: #fff;
+  font-size: 24px;
+}
+
+#menu {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#menu>ul {
+  display: flex;
+  gap: 20px;
+}
+
+#menu>ul>li:hover>a {
+  filter: invert(0.3);
+  transition: 0.3s;
+}
+
+#menu>ul>li:not(:nth-child(4))>a {
+  color: #ccc;
+  line-height: 60px;
+  transition: 0.3s;
+}
+
+#menu>ul>li:nth-child(4)>a {
+  color: #ffffff;
+  line-height: 60px;
+  transition: 0.3s;
+}
+
+.icons {
+  width: auto;
+  height: 100%;
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.icons>a>img {
+  width: 28px;
+  filter: invert(1);
+  transition: 0.3s;
+}
+
+.icons>a:hover>img {
+  filter: invert(0.7);
+  transition: 0.3s;
+}
+
+main {
+  width: 100%;
+  box-sizing: border-box;
+  height: auto;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.container{
+  width: 100%;
+  height: 200px;
+  box-sizing: border-box;
+  border : solid 1px #fff;
+  border-collapse: collapse;
+}
+
+.item{
+  max-width: 90%;
+  height: 50%;
+  margin-right: 50%;
+  border: 1px solid #fff;
+  border-collapse: collapse;
+  box-sizing: border-box;
+  background-color: #ffffff30;
+  transition: 0.3s;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item:hover{
+  margin: 0;
+  background-color: #00ffff90;
+  transition: 0.3s;
+}
+
+.circle{
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  background-color: #fff;
+  border-radius: 100px;
+  box-shadow: 0px 0 20px 10px #ffffff;
+  filter: blur(10px);
+  transition: 0.3s;
+}
+
+.circle:hover{
+  background-color: lightgreen;
+  box-shadow: 0px 0 20px 10px lightgreen;
+  transition: 0.3s;
+}
