@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flex Exam</title>
+  <style>
+    .item_wrap{
+      display: flex;
+    }
+    .item {
+      width: 400px;
+      height: 400px;
+      flex-basis: 400px;
+    }
+    .item1{
+      flex-shrink: 2;
+      flex-grow: 1;
+      background-color: aquamarine;
+    }
+    .item2{
+      flex-shrink: 1;
+      flex-grow: 2;
+      background-color: cornflowerblue;
+    }
+  </style>
+</head>
+
+<body>
+  <h3>문제1</h3>
+  <p>item1, item2의 너비가 400px일 때 1:2만큼 수축하도록 지정</p>
+  <div class="item_wrap">
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+  </div>
+
+  <h3>문제2</h3>
+  <p>item1, item2의 너비가 400px일 때 너비가 1:2만큼 늘어나도록 지정</p>
+  <div class="item_wrap">
+    <div class="item item1"></div>
+    <div class="item item2"></div>
+  </div>
+</body>
+
+</html>

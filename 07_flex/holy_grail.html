@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holy Grail</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      text-decoration: none;
+      color: #111;
+    }
+
+    ul,
+    li {
+      list-style: none;
+    }
+
+    .container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      /* gap: 10px; */
+    }
+
+    header,
+    footer {
+      /* text-align: center; */
+      /* background-color: violet; */
+      box-sizing: border-box;
+      padding: 10px;
+    }
+
+    header,
+    main {
+      border-bottom: 1px solid #111;
+    }
+
+    main {
+      display: flex;
+      text-align: center;
+      gap: 10px;
+      margin: 0 auto;
+      width: 100%;
+    }
+
+    main section {
+      /* background-color: cornflowerblue; */
+      flex: 1 1;
+      text-align: left;
+      box-sizing: border-box;
+      padding: 20px 10px;
+      border-right: 1px solid #111;
+    }
+
+    main .menu {
+      max-width: 250px;
+    }
+
+    main .main_visual {
+      flex-grow: 2;
+      column-count: 2;
+    }
+
+    main .ad {
+      border: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <h1><a href="#">Holy Grail Layout</a></h1>
+    </header>
+    <main>
+      <section class="menu">
+        <nav>
+          <ul>
+            <li><a href="#">main</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">help</a></li>
+          </ul>
+        </nav>
+      </section>
+      <section class="main_visual">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eveniet commodi delectus optio assumenda vel
+        laudantium Expedita, laborum aperiam quae commodi sint deserunt maiores tempore laudantium, nihil soluta omnis
+        alias Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eveniet commodi delectus optio assumenda vel
+        laudantium Expedita, laborum aperiam quae commodi sint deserunt maiores tempore laudantium, nihil soluta omnis
+        alias Expedita, laborum aperiam quae commodi sint deserunt maiores tempore laudantium, nihil soluta omnis
+        alias Lorem ipsum dolor sit amet consectetur adipisicing elit. Suscipit eveniet commodi delectus optio assumenda vel
+        laudantium Expedita, laborum aperiam quae commodi sint deserunt maiores tempore laudantium, nihil soluta omnis
+        alias!
+      </section>
+      <section class="ad">광고영역</section>
+    </main>
+    <footer>
+      <!-- <a href="#">홈페이지</a> -->
+      <p>&copy; copyright</p>
+    </footer>
+  </div>
+</body>
+
+</html>

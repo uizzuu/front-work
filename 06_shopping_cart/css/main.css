@@ -1,0 +1,104 @@
+@charset "utf-8";
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+
+  list-style: none;
+}
+
+body {
+  font-family: "Noto Sans KR", sans-serif;
+  font-size: 16px;
+  color: #111;
+  margin-bottom: 40px;
+  min-width: 540px;
+}
+
+a {
+  color: #111;
+  text-decoration: none;
+}
+
+img{
+  display: block;
+}
+
+/* container */
+.background{
+  background-color: #c2d3de;
+}
+
+.container{
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  height: fit-content;
+  box-sizing: border-box;
+  padding: 40px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart_table{
+  width: 100%;
+  background-color: #fff;
+  border-radius: 8px;
+  border: 1px solid #bbb;
+  border-collapse: collapse;
+}
+
+.cart_table td{
+  /* box-sizing: border-box; */
+  padding: 8px 15px;
+  border-bottom: 1px solid #bbb;
+}
+
+.cart_table tr:last-child td{
+  text-align: right;
+}
+
+.cart_table td:nth-child(2){
+  width: 60%;
+}
+
+.cart_table td:nth-child(1) img{
+  width: 50px;
+  margin: 0 auto;
+}
+
+.layout{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.buy_btn{
+  font-size: 15px;
+  padding: 2px 8px;
+  border: 1px solid #bbb;
+  background-color: #fff;
+}
+
+form{
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+input{
+  height: 20px;
+  border: 1px solid #bbb;
+}
+
+input:focus {
+  border: 1px solid #333;
+}
+
+label{
+  font-size: 15px;
+  color: #555;
+}
