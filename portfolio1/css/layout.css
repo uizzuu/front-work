@@ -1,0 +1,154 @@
+@charset "utf-8";
+@import url(./reset.css);
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+body {
+  font-family: "Inter", sans-serif;
+  font-size: var(--fontsize-sm);
+  color: var(--color-blk);
+  line-height: var(--lineheight-sm);
+}
+
+main {
+  width: 100%;
+  height: auto;
+}
+
+.con {
+  width: 1600px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.main_visual {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 140px 0;
+  overflow: hidden;
+
+  background: #4897DC;
+  background: linear-gradient(180deg, rgba(72, 151, 220, 1) 0%, rgba(78, 98, 193, 1) 100%);
+}
+
+.main_visual > .con{
+  height: 400px;
+  display: flex;
+  box-sizing: border-box;
+  justify-content: space-between;
+}
+
+.main_text{
+  display: flex;
+  flex-direction: column;
+  gap: 44px;
+
+  color: #fff;
+}
+
+.main_text h2{
+  font-size: var(--fontsize-xl);
+  font-weight: var(--fontweight-xl);
+}
+
+.main_text p{
+  font-size: var(--fontsize-sm);
+  line-height: var(--lineheight-xs);
+}
+
+.button{
+  width: fit-content;
+  padding: 12px 24px;
+  border-radius: 8px;
+  background-color: var(--color-btn);
+  color: #fff;
+  font-size: var(--fontsize-sm);
+  transition: background-color 0.3s;
+}
+
+.button:hover{
+  background-color: #444;
+}
+
+.main_img{
+  width: 518px;
+  position: relative;
+}
+
+.main_img > img{
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  transform: translateY(60%);
+}
+
+/* sec1, sec2 */
+
+.sec1, .sec2 {
+  padding: 100px 0;
+}
+
+:is(.sec1, .sec2) > .con{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  align-items: center;
+}
+
+.sec_title{
+  font-size: var(--fontsize-lg);
+  font-weight: var(--fontweight-lg);
+}
+
+.sec_p{
+  font-size: var(--fontsize-md);
+  font-weight: var(--fontweight-md);
+}
+
+.sec2{
+  background-color: var(--color-sec2);
+  color: #fff;
+}
+
+.sec2_title{
+  margin-bottom: 60px;
+}
+
+.box_wrapper{
+  width: 1200px;
+  display: flex;
+}
+
+.box{
+  flex: 1 1 25%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.box h4{
+  font-size: var(--fontsize-md);
+}
+
+.box > p{
+  font-weight: var(--fontweight-sm);
+}
+
+.box_icon{
+  width: 130px;
+  height: 130px;
+  background-color: #fff;
+  border-radius: 100%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.box_icon .fa-solid{
+  font-size: 55px;
+  color: var(--color-sec2);
+}
