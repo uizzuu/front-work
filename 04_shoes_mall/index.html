@@ -5,11 +5,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./css/main.css">
-  <title>Shoes MAll</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Shoes Mall</title>
 </head>
 
 <body>
-<header>
+  <header>
     <h1>
       <a href="#">
         Shoes Mall
@@ -21,7 +22,7 @@
           <a href="#">Shoes shop</a>
         </li>
         <li>
-          <a href="#">Prodicts</a>
+          <a href="#">Products</a>
         </li>
         <li>
           <a href="#">Services</a>
@@ -37,52 +38,56 @@
       </a>
     </div>
   </header>
-  <div class="container">
-    <div class="main">
-      <h2 class="main_title">Buy Our Shoes!</h2>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
 
-      <button type="button" class="buy">
-        구매하기
-      </button>
-    </div>
-    <div class="sec1">
-      <h3>How we design out shoes.</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-        sed do eiusmod tempor incididunt ut labore et dolore
-        magna aliqua. Ut enim ad minim veniam, quis nostrud
-        exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-      </p>
-    </div>
-    <!-- contact us form 추가 -->
-     <form>
-      <h3>Contact Us</h3>
-      <div class="user_email user">
-        <label for="user_email">Your Email</label>
-        <input type="text" placeholder="Enter your email">
+  <main>
+    <div class="container">
+      <div class="main">
+        <h2 class="main_title">Buy Our Shoes!</h2>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
+
+        <button type="button" class="buy">
+          구매하기
+        </button>
       </div>
-      <div class="user_name">
-        <div class="user_name_first user">
-          <label for="user_name_first">First Name</label>
-          <input type="text">
-        </div>
-        <div class="user_name_last user">
-          <label for="user_name_last">Last Name</label>
-          <input type="text">
-        </div>
+
+      <div class="sec1">
+        <h3>How we design out shoes.</h3>
+        <p>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+          sed do eiusmod tempor incididunt ut labore et dolore
+          magna aliqua. Ut enim ad minim veniam, quis nostrud
+          exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+        </p>
       </div>
+
+      <!-- contact us form 추가 -->
+      <form>
+        <h3>Contact Us</h3>
+        <div class="user_email user">
+          <label for="user_email">Your Email</label>
+          <input type="text" placeholder="Enter your email">
+        </div>
+        <div class="user_name">
+          <div class="user_name_first user">
+            <label for="user_name_first">First Name</label>
+            <input type="text">
+          </div>
+          <div class="user_name_last user">
+            <label for="user_name_last">Last Name</label>
+            <input type="text">
+          </div>
+        </div>
         <div class="user_massage user">
           <label for="user_massage">Message</label>
           <textarea style="resize: none;"></textarea>
@@ -94,8 +99,41 @@
         <div class="send_button">
           <button type="submit">SEND</button>
         </div>
-     </form>
-  </div>
+      </form>
+
+      <div class="product-container">
+        <div>
+          <div class="product-icon">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </div>
+          <h4>Fast Shipping</h4>
+          <p>We ship faster than other shops</p>
+        </div>
+        <div>
+          <div class="product-icon">
+            <i class="fa-solid fa-earth-asia"></i>
+          </div>
+          <h4>Good Service</h4>
+          <p>Expect a life long service</p>
+        </div>
+        <div>
+          <div class="product-icon">
+            <i class="fa-solid fa-user"></i>
+          </div>
+          <h4>Free Coupons</h4>
+          <p>With new selcome gifts</p>
+        </div>
+        <div>
+          <div class="product-icon">
+            <i class="fa-solid fa-shirt"></i>
+          </div>
+          <h4>New Products</h4>
+          <p>See monthly new products</p>
+        </div>
+      </div>
+      
+    </div>
+  </main>
 </body>
 
 </html>
