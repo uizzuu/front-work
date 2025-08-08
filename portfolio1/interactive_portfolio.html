@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Portfolio | 앱 랜딩 페이지</title>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The application is structured as a single-page landing page with a sticky navigation bar for easy access to different sections. The flow is designed to guide the user from a general introduction (Hero) to specific offerings (Features), tangible results (Portfolio & Data Insights), and finally to a call-to-action (Contact). This thematic, top-down structure was chosen over the original's repetitive layout to create a more logical and persuasive user journey, enhancing usability by making information discovery intuitive. Key interactions include smooth scrolling, portfolio filtering, and dynamic charts to engage the user and present information digestibly. -->
+    <!-- Visualization & Content Choices: 
+        - Report Info: Service offerings. Goal: Inform/Compare. Viz: Donut Chart (Chart.js/Canvas). Interaction: Hover for tooltips. Justification: A donut chart provides an immediate, easy-to-understand visual breakdown of service distribution, which is more engaging than a simple list.
+        - Report Info: Project success metrics. Goal: Compare/Change. Viz: Bar Chart (Chart.js/Canvas). Interaction: Hover for tooltips. Justification: A bar chart is ideal for comparing discrete categories like project completion rates over time, clearly demonstrating growth and success.
+        - Report Info: Portfolio items. Goal: Organize/Explore. Viz: Filterable Grid (HTML/CSS/JS). Interaction: Click category buttons to filter items. Justification: A filterable grid allows users to actively explore the portfolio based on their interests, making the content more relevant and less overwhelming than a static list.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', 'Noto Sans KR', sans-serif;
+            background-color: #F8F7F4;
+            color: #333333;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .nav-link {
+            position: relative;
+            transition: color 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #4A90E2;
+            transition: width 0.3s ease;
+        }
+        .nav-link:hover::after, .nav-link.active::after {
+            width: 100%;
+        }
+        .portfolio-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .portfolio-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+        }
+        .filter-btn.active {
+            background-color: #4A90E2;
+            color: white;
+        }
+    </style>
+</head>
+<body class="bg-[#F8F7F4]">
+
+    <!-- Header & Navigation -->
+    <header id="header" class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-[#4A90E2]">AppFolio</a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="nav-link text-gray-600 hover:text-[#4A90E2]">핵심 기능</a>
+                <a href="#portfolio" class="nav-link text-gray-600 hover:text-[#4A90E2]">포트폴리오</a>
+                <a href="#insights" class="nav-link text-gray-600 hover:text-[#4A90E2]">데이터 분석</a>
+                <a href="#contact" class="nav-link text-gray-600 hover:text-[#4A90E2]">문의하기</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden text-2xl">☰</button>
+        </nav>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white p-4">
+            <a href="#features" class="block py-2 text-center text-gray-600 hover:text-[#4A90E2]">핵심 기능</a>
+            <a href="#portfolio" class="block py-2 text-center text-gray-600 hover:text-[#4A90E2]">포트폴리오</a>
+            <a href="#insights" class="block py-2 text-center text-gray-600 hover:text-[#4A90E2]">데이터 분석</a>
+            <a href="#contact" class="block py-2 text-center text-gray-600 hover:text-[#4A90E2]">문의하기</a>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="py-20 md:py-32">
+            <div class="container mx-auto px-6 text-center">
+                <div class="max-w-3xl mx-auto">
+                    <h1 class="text-4xl md:text-6xl font-bold mb-4 text-gray-800">당신의 앱을 위한 완벽한 랜딩 페이지</h1>
+                    <p class="text-lg md:text-xl text-gray-600 mb-8">
+                        저희는 사용자의 시선을 사로잡는 반응형 디자인과 강력한 기능을 통해 당신의 다음 프로젝트를 성공으로 이끌어 드립니다.
+                    </p>
+                    <a href="#portfolio" class="bg-[#4A90E2] text-white font-bold py-3 px-8 rounded-full hover:bg-blue-600 transition duration-300 text-lg">포트폴리오 보기</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">우리가 제공하는 것</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">이 섹션에서는 저희가 제공하는 핵심 서비스와 가치를 소개합니다. 각 기능은 고객의 성공을 위해 세심하게 설계되었으며, 최고의 기술력과 사용자 경험을 보장합니다.</p>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div class="text-center p-6 border border-gray-200 rounded-lg bg-gray-50">
+                        <div class="text-4xl text-[#4A90E2] mb-4">📱</div>
+                        <h3 class="text-xl font-bold mb-2">반응형 디자인</h3>
+                        <p class="text-gray-600">모든 디바이스에서 완벽하게 보이는 디자인을 제공합니다.</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-lg bg-gray-50">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🧪</div>
+                        <h3 class="text-xl font-bold mb-2">다양한 실험</h3>
+                        <p class="text-gray-600">최신 기술을 활용한 혁신적인 기능을 구현합니다.</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-lg bg-gray-50">
+                        <div class="text-4xl text-[#4A90E2] mb-4">⚡️</div>
+                        <h3 class="text-xl font-bold mb-2">빠른 속도</h3>
+                        <p class="text-gray-600">사용자 경험을 최우선으로 생각하는 빠른 로딩 속도.</p>
+                    </div>
+                    <div class="text-center p-6 border border-gray-200 rounded-lg bg-gray-50">
+                        <div class="text-4xl text-[#4A90E2] mb-4">🌍</div>
+                        <h3 class="text-xl font-bold mb-2">글로벌 서비스</h3>
+                        <p class="text-gray-600">전 세계 어디서든 안정적인 서비스를 제공합니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="py-20">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">우리의 작업물</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">이곳에서 저희가 진행한 다양한 프로젝트들을 확인하실 수 있습니다. 아래 버튼을 클릭하여 카테고리별로 필터링하고, 저희의 역량을 직접 확인해 보세요.</p>
+                </div>
+                <div id="portfolio-filters" class="flex justify-center space-x-2 md:space-x-4 mb-10">
+                    <button class="filter-btn active font-semibold py-2 px-4 rounded-full transition duration-300 border border-gray-300 hover:bg-[#4A90E2] hover:text-white" data-filter="all">전체</button>
+                    <button class="filter-btn font-semibold py-2 px-4 rounded-full transition duration-300 border border-gray-300 hover:bg-[#4A90E2] hover:text-white" data-filter="web">웹 앱</button>
+                    <button class="filter-btn font-semibold py-2 px-4 rounded-full transition duration-300 border border-gray-300 hover:bg-[#4A90E2] hover:text-white" data-filter="mobile">모바일 앱</button>
+                    <button class="filter-btn font-semibold py-2 px-4 rounded-full transition duration-300 border border-gray-300 hover:bg-[#4A90E2] hover:text-white" data-filter="branding">브랜딩</button>
+                </div>
+                <div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Portfolio items will be injected here by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Data Insights Section -->
+        <section id="insights" class="py-20 bg-white">
+            <div class="container mx-auto px-6">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl md:text-4xl font-bold text-gray-800">데이터로 보는 성과</h2>
+                    <p class="text-gray-600 mt-4 max-w-2xl mx-auto">저희는 데이터 기반의 의사결정을 통해 프로젝트 성공률을 높입니다. 아래 차트들은 저희의 서비스 분포와 분기별 프로젝트 성공률을 시각적으로 보여주며, 저희의 전문성과 성과를 투명하게 공개합니다.</p>
+                </div>
+                <div class="grid lg:grid-cols-2 gap-12 items-center">
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-4">서비스 분포도</h3>
+                        <p class="text-gray-600 mb-6 max-w-md mx-auto">저희가 제공하는 주요 서비스들의 비중을 나타냅니다. 모바일 앱 개발에 가장 큰 강점을 가지고 있습니다.</p>
+                        <div class="chart-container">
+                            <canvas id="servicesChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <h3 class="text-2xl font-bold mb-4">프로젝트 성공률 (%)</h3>
+                        <p class="text-gray-600 mb-6 max-w-md mx-auto">분기별 프로젝트 완료 및 고객 만족도 기준 성공률입니다. 지속적인 성장을 확인하실 수 있습니다.</p>
+                        <div class="chart-container">
+                            <canvas id="successRateChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-800">프로젝트를 시작할 준비가 되셨나요?</h2>
+                <p class="text-gray-600 mt-4 mb-8 max-w-xl mx-auto">지금 바로 연락주시면, 당신의 아이디어를 현실로 만들어 드리겠습니다.</p>
+                <a href="mailto:contact@appfolio.com" class="bg-[#F5A623] text-white font-bold py-4 px-10 rounded-full hover:bg-orange-500 transition duration-300 text-xl">지금 문의하기</a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="container mx-auto px-6 text-center">
+            <p>&copy; 2025 AppFolio. All Rights Reserved.</p>
+            <p class="text-sm text-gray-400 mt-2">디자인 및 개발: Interactive Portfolio Solutions</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuButton = document.getElementById('mobile-menu-button');
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+            
+            // Close mobile menu when a link is clicked
+            mobileMenu.addEventListener('click', (event) => {
+                if(event.target.tagName === 'A'){
+                    mobileMenu.classList.add('hidden');
+                }
+            });
+
+            // Navigation Active State
+            const sections = document.querySelectorAll('section');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            window.addEventListener('scroll', () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop;
+                    if (pageYOffset >= sectionTop - 60) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href').includes(current)) {
+                        link.classList.add('active');
+                    }
+                });
+            });
+
+            // Portfolio Data
+            const portfolioData = [
+                {
+                    title: 'Fintech Mobile App',
+                    category: 'mobile',
+                    description: '사용자 친화적인 인터페이스를 갖춘 혁신적인 금융 관리 모바일 앱입니다.',
+                    image: 'https://placehold.co/600x400/a2d2ff/ffffff?text=Fintech+App'
+                },
+                {
+                    title: 'E-commerce Platform',
+                    category: 'web',
+                    description: '확장성과 보안성을 겸비한 맞춤형 온라인 쇼핑몰 플랫폼입니다.',
+                    image: 'https://placehold.co/600x400/bde0fe/ffffff?text=E-commerce'
+                },
+                {
+                    title: 'Corporate Branding',
+                    category: 'branding',
+                    description: '기업의 정체성을 확립하는 통합 브랜딩 전략 및 디자인을 제공합니다.',
+                    image: 'https://placehold.co/600x400/ffafcc/ffffff?text=Branding'
+                },
+                {
+                    title: 'Healthcare Web App',
+                    category: 'web',
+                    description: '환자와 의료진을 연결하는 효율적인 건강 관리 웹 애플리케이션입니다.',
+                    image: 'https://placehold.co/600x400/bde0fe/ffffff?text=Healthcare+Web'
+                },
+                {
+                    title: 'Travel Planner App',
+                    category: 'mobile',
+                    description: 'AI 기반 여행 추천 기능을 탑재한 스마트 여행 플래너 모바일 앱입니다.',
+                    image: 'https://placehold.co/600x400/a2d2ff/ffffff?text=Travel+App'
+                },
+                {
+                    title: 'Startup Logo Design',
+                    category: 'branding',
+                    description: '스타트업의 비전을 담은 독창적이고 기억에 남는 로고를 디자인합니다.',
+                    image: 'https://placehold.co/600x400/ffafcc/ffffff?text=Logo+Design'
+                }
+            ];
+
+            const portfolioGrid = document.getElementById('portfolio-grid');
+            const filterButtons = document.querySelectorAll('#portfolio-filters .filter-btn');
+
+            function renderPortfolio(filter = 'all') {
+                portfolioGrid.innerHTML = '';
+                const filteredData = filter === 'all' ? portfolioData : portfolioData.filter(item => item.category === filter);
+
+                filteredData.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'portfolio-item bg-white rounded-lg overflow-hidden shadow-lg';
+                    itemElement.innerHTML = `
+                        <img src="${item.image}" alt="${item.title}" class="w-full h-48 object-cover" onerror="this.onerror=null;this.src='https://placehold.co/600x400/cccccc/ffffff?text=Image+Error';">
+                        <div class="p-6">
+                            <h4 class="text-xl font-bold mb-2">${item.title}</h4>
+                            <p class="text-gray-600">${item.description}</p>
+                        </div>
+                    `;
+                    portfolioGrid.appendChild(itemElement);
+                });
+            }
+
+            filterButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+                    renderPortfolio(filter);
+                });
+            });
+
+            renderPortfolio();
+
+            // Chart.js Implementations
+            const servicesCtx = document.getElementById('servicesChart').getContext('2d');
+            const servicesChart = new Chart(servicesCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['모바일 앱 개발', '웹 앱 개발', '브랜딩 및 디자인', '컨설팅'],
+                    datasets: [{
+                        label: '서비스 분포',
+                        data: [45, 30, 15, 10],
+                        backgroundColor: ['#4A90E2', '#50E3C2', '#F5A623', '#BD10E0'],
+                        borderColor: '#FFFFFF',
+                        borderWidth: 3
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    let label = context.label || '';
+                                    if (label) {
+                                        label += ': ';
+                                    }
+                                    if (context.parsed !== null) {
+                                        label += context.parsed + '%';
+                                    }
+                                    return label;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+            const successRateChart = new Chart(successRateCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['1분기', '2분기', '3분기', '4분기'],
+                    datasets: [{
+                        label: '프로젝트 성공률',
+                        data: [88, 92, 95, 98],
+                        backgroundColor: '#4A90E2',
+                        borderColor: '#3b82f6',
+                        borderWidth: 1,
+                        borderRadius: 5
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            max: 100,
+                            ticks: {
+                                callback: function(value) {
+                                    return value + '%';
+                                }
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return '성공률: ' + context.parsed.y + '%';
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
